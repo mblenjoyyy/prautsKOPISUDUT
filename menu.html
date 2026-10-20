@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Menu Kopi Sudut — katalog minuman kopi dan non-kopi dengan harga jelas. Pesan langsung via WhatsApp." />
+  <title>Menu Kami — Kopi Sudut</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="menu">
+  <header id="site-header" class="site-header"></header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="page-hero__title">Menu Kami</h1>
+        <p class="page-hero__desc">
+          Pilih menu favoritmu dari racikan kopi klasik hingga minuman kekinian.
+          Semua tersedia dengan harga terjangkau dan bisa dipesan langsung lewat WhatsApp.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div id="filter-kategori" class="filter" role="group" aria-label="Filter kategori menu">
+          <button class="chip is-active" type="button" data-filter="semua" aria-pressed="true">Semua</button>
+          <button class="chip" type="button" data-filter="kopi" aria-pressed="false">Kopi</button>
+          <button class="chip" type="button" data-filter="non-kopi" aria-pressed="false">Non-Kopi</button>
+        </div>
+
+        <div id="section-kopi" class="menu-category" data-kategori="kopi">
+          <h2 class="menu-category__title">Kopi</h2>
+          <div id="grid-kopi" class="grid grid--products"></div>
+        </div>
+
+        <div id="section-nonkopi" class="menu-category" data-kategori="non-kopi">
+          <h2 class="menu-category__title">Non-Kopi</h2>
+          <div id="grid-non-kopi" class="grid grid--products"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
