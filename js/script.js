@@ -193,9 +193,18 @@ function renderFooter() {
         <span class="footer__link">${escapeHtml(KONFIGURASI.kontak.alamat)}</span>
         <span class="footer__link">Buka: ${escapeHtml(KONFIGURASI.kontak.jam)}</span>
       </div>
-      <div class="footer__col">
+<div class="footer__col">
         <span class="footer__heading">Ikuti Kami</span>
         ${sosial}
+      </div>
+      <div class="footer__col">
+        <span class="footer__heading">Pesan</span>
+        <a class="footer__link" href="pesan.html">Pesan Online</a>
+      </div>
+    </div>
+      <div class="footer__col">
+        <span class="footer__heading">Pesan</span>
+        <a class="footer__link" href="pesan.html" target="_blank" rel="noopener noreferrer">Pesan Online</a>
       </div>
     </div>
     <div class="container footer__bottom">
