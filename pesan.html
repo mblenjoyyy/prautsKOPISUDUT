@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Form pesan online di Kopi Sudut — kirim pesanan via WhatsApp dan simpan ke database." />
+  <title>Pesan Online — Kopi Sudut</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="pesan">
+  <header id="site-header" class="site-header"></header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="page-hero__title">Pesan Online</h1>
+        <p class="page-hero__desc">
+          Pesanan Anda akan dicatat dalam sistem kami. Anda juga bisa memesan langsung
+          melalui WhatsApp kami kapan saja.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <!-- Section A: Form Pesan -->
+        <div class="row">
+          <div class="column">
+            <h2 class="section__title">Form Pesanan</h2>
+
+            <form id="pesanForm" aria-live="polite">
+              <!-- Pesan sukses/ditisalakan akan muncul di sini -->
+              <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
+
+              <div class="form-group">
+                <label for="namaPelanggan">Nama Pelanggan <span class="required">*</span></label>
+                <input type="text" id="namaPelanggan" name="nama_pelanggan" required minlength="2" maxlength="60" aria-required="true" />
+              </div>
+
+              <div class="form-group">
+                <label for="noWhatsApp">Nomor WhatsApp <span class="required">*</span></label>
+                <input type="tel" id="noWhatsApp" name="no_whatsapp" required pattern="^[0-9]{9,15}$" inputmode="numeric" aria-required="true" />
+                <small class="form-hint">Contoh: 081234567890 atau 6281234567890</small>
+              </div>
+
+              <div class="form-group">
+                <label for="produk">Pilihan Minuman <span class="required">*</span></label>
+                <select id="produk" name="produk" required aria-required="true">
+                  <option value="" disabled selected>-- Pilih minuman --</option>
+                  <!-- Opsi akan diisi oleh js/pesan.js -->
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="jumlah">Jumlah <span class="required">*</span></label>
+                <input type="number" id="jumlah" name="jumlah" required min="1" max="20" value="1" aria-required="true" />
+              </div>
+
+              <div class="form-group">
+                <label for="catatan">Catatan <span class="optional">(*Opsional)</span></label>
+                <textarea id="catatan" name="catatan" rows="3" maxlength="200" aria-describedby="catatan-help"></textarea>
+                <small id="catatan-help" class="form-hint">Maksimal 200 karakter.</small>
+              </div>
+
+              <button type="submit" class="btn btn--primary" id="pesanBtn">Kirim Pesanan</button>
+            </form>
+          </div>
+
+          <!-- Section B: Pesanan Terbaru -->
+          <div class="column">
+            <h2 class="section__title">Pesanan Terbaru</h2>
+            <div id="orderList" class="order-list">
+              <p class="no-data">Memuat pesanan terbaru...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+
+  <!-- Load script.js terlebih dahulu, lalu pesan.js -->
+  <script src="js/script.js"></script>
+  <script src="js/pesan.js"></script>
+</body>
+</html>

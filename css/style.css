@@ -349,7 +349,7 @@ button:focus-visible {
   display: flex;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 960px) {
   .nav {
     display: flex;
   }
@@ -1013,4 +1013,210 @@ button:focus-visible {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* ============================================================
+   Order Form & Order List (Pesan Online)
+   ============================================================ */
+
+/* Dua kolom: form | daftar pesanan. Stack di mobile. */
+.row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.column {
+  min-width: 0; /* cegah overflow horizontal di layar kecil */
+}
+
+@media (min-width: 900px) {
+  .row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Form */
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-primary);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  min-height: 44px; /* target sentuh minimal */
+  padding: 0.6rem 0.8rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-card);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-group textarea {
+  min-height: 88px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.form-group input:focus-visible,
+.form-group select:focus-visible,
+.form-group textarea:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-color: var(--color-primary);
+}
+
+.required {
+  color: var(--color-accent);
+}
+
+.optional {
+  font-weight: 400;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
+
+.form-hint {
+  display: block;
+  margin-top: var(--space-xs);
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+#pesanBtn {
+  margin-top: var(--space-sm);
+}
+
+/* Pesan sukses / error */
+.form-message {
+  display: none;
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-md);
+  border-radius: var(--radius-card);
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.form-message--success {
+  display: block;
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.form-message--error {
+  display: block;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+/* Daftar pesanan */
+.order-list {
+  margin-top: var(--space-sm);
+}
+
+.order-list-entries {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.order-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-xs) var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+
+.order-name {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.order-produk {
+  color: var(--color-text);
+}
+
+.order-jumlah {
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.order-note {
+  flex-basis: 100%;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  font-style: italic;
+  overflow-wrap: anywhere;
+}
+
+.order-time {
+  flex-basis: 100%;
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+.no-data {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+/* Tombol Pesan Online di halaman menu */
+.filter-button {
+  margin-top: var(--space-md);
+}
+
+/* ---------- Navbar: tombol Pesan Online ---------- */
+.brand,
+.nav__link {
+  white-space: nowrap;
+}
+
+.nav__actions {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn--nav-online {
+  background-color: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.btn--nav-online:hover,
+.btn--nav-online[aria-current="page"] {
+  background-color: rgba(255, 255, 255, 0.14);
+  border-color: #fff;
+}
+
+@media (min-width: 960px) {
+  .nav__actions {
+    display: flex;
+  }
 }

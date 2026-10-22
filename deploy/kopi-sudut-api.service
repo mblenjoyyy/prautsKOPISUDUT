@@ -1,0 +1,32 @@
+# Systemd unit untuk Kopi Sudut API
+#
+# Pemasangan:
+#   sudo cp /var/www/html/deploy/kopi-sudut-api.service /etc/systemd/system/kopi-sudut-api.service
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now kopi-sudut-api
+#   sudo systemctl status kopi-sudut-api
+
+[Unit]
+Description=Kopi Sudut API (Node.js + Express + MariaDB)
+After=network.target mariadb.service
+Wants=mariadb.service
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/html/backend
+ExecStart=/usr/bin/node server.js
+Restart=always
+RestartSec=3
+
+# Hardening dasar
+NoNewPrivileges=true
+PrivateTmp=true
+
+# Log dikirim ke journald (lihat: journalctl -u kopi-sudut-api -f)
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
