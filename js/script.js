@@ -124,6 +124,7 @@ function renderNavbar(halamanAktif) {
   const linkBeranda = `<a class="nav__link${halamanAktif === "beranda" ? " is-active" : ""}" href="index.html">Beranda</a>`;
   const linkMenu = `<a class="nav__link${halamanAktif === "menu" ? " is-active" : ""}" href="menu.html">Menu</a>`;
   const linkTentang = `<a class="nav__link${halamanAktif === "tentang" ? " is-active" : ""}" href="tentang.html">Tentang Kami</a>`;
+  const linkPesanAttr = halamanAktif === "pesan" ? ' aria-current="page"' : "";
 
   const header = document.getElementById("site-header");
   if (!header) return;
@@ -139,9 +140,12 @@ function renderNavbar(halamanAktif) {
         <li>${linkMenu}</li>
         <li>${linkTentang}</li>
       </ul>
-      <a class="btn btn--whatsapp nav__cta" href="${pesanUmumUrl()}" target="_blank" rel="noopener noreferrer">
-        ${ICON_WHATSAPP}<span>Pesan Sekarang</span>
-      </a>
+      <div class="nav__actions">
+        <a class="btn btn--nav-online nav__cta"${linkPesanAttr} href="pesan.html">Pesan Online</a>
+        <a class="btn btn--whatsapp nav__cta" href="${pesanUmumUrl()}" target="_blank" rel="noopener noreferrer">
+          ${ICON_WHATSAPP}<span>Pesan Sekarang</span>
+        </a>
+      </div>
       <button class="nav__toggle" type="button" aria-controls="nav-panel" aria-expanded="false" aria-label="Buka menu navigasi">
         <span class="nav__toggle-bar"></span>
         <span class="nav__toggle-bar"></span>
@@ -152,6 +156,7 @@ function renderNavbar(halamanAktif) {
       ${linkBeranda}
       ${linkMenu}
       ${linkTentang}
+      <a class="btn btn--nav-online nav__cta"${linkPesanAttr} href="pesan.html">Pesan Online</a>
       <a class="btn btn--whatsapp nav__cta" href="${pesanUmumUrl()}" target="_blank" rel="noopener noreferrer">
         ${ICON_WHATSAPP}<span>Pesan Sekarang</span>
       </a>
@@ -193,18 +198,9 @@ function renderFooter() {
         <span class="footer__link">${escapeHtml(KONFIGURASI.kontak.alamat)}</span>
         <span class="footer__link">Buka: ${escapeHtml(KONFIGURASI.kontak.jam)}</span>
       </div>
-<div class="footer__col">
+      <div class="footer__col">
         <span class="footer__heading">Ikuti Kami</span>
         ${sosial}
-      </div>
-      <div class="footer__col">
-        <span class="footer__heading">Pesan</span>
-        <a class="footer__link" href="pesan.html">Pesan Online</a>
-      </div>
-    </div>
-      <div class="footer__col">
-        <span class="footer__heading">Pesan</span>
-        <a class="footer__link" href="pesan.html" target="_blank" rel="noopener noreferrer">Pesan Online</a>
       </div>
     </div>
     <div class="container footer__bottom">

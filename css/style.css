@@ -349,7 +349,7 @@ button:focus-visible {
   display: flex;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 960px) {
   .nav {
     display: flex;
   }
@@ -1189,4 +1189,34 @@ button:focus-visible {
 /* Tombol Pesan Online di halaman menu */
 .filter-button {
   margin-top: var(--space-md);
+}
+
+/* ---------- Navbar: tombol Pesan Online ---------- */
+.brand,
+.nav__link {
+  white-space: nowrap;
+}
+
+.nav__actions {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn--nav-online {
+  background-color: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.btn--nav-online:hover,
+.btn--nav-online[aria-current="page"] {
+  background-color: rgba(255, 255, 255, 0.14);
+  border-color: #fff;
+}
+
+@media (min-width: 960px) {
+  .nav__actions {
+    display: flex;
+  }
 }
